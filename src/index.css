@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: 'Cormorant Garamond', serif;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+@keyframes droplet-glow {
+  0%, 100% { filter: brightness(1.5) contrast(1.1); }
+  40% { filter: brightness(1.5) contrast(1.1); }
+  50% { filter: brightness(2.2) contrast(1.2); }
+  60% { filter: brightness(1.5) contrast(1.1); }
+  75% { filter: brightness(1.8) contrast(1.15); }
+  80% { filter: brightness(1.5) contrast(1.1); }
+}
+
+img, canvas, video {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: none;
+}
+
+a, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Prevent Safari auto-detection of phone numbers, addresses, etc */
+body {
+  -webkit-text-stroke: 0;
+  cursor: none;
+}
+
+/* Custom cursor */
+#custom-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 28px; height: 28px;
+  background: #2ecc40;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.15s ease, height 0.15s ease;
+}
+
+#custom-cursor.clicking {
+  width: 28px; height: 28px;
+}
+
+#cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 64px; height: 64px;
+  border: 2.5px solid rgba(255,255,255,0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+#cursor-ring.clicking {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+*, *::before, *::after {
+  cursor: none !important;
+}
